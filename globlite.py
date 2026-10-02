@@ -8,6 +8,10 @@ def match(pattern: str, text: str) -> bool:
     return re.fullmatch(_compile(pattern), text) is not None
 
 
+def matches_any(text: str, patterns: list[str]) -> bool:
+    return any(match(pattern, text) for pattern in patterns)
+
+
 def filter_names(pattern: str, names: list[str]) -> list[str]:
     return [name for name in names if match(pattern, name)]
 
