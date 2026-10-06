@@ -12,6 +12,13 @@ def matches_any(text: str, patterns: list[str]) -> bool:
     return any(match(pattern, text) for pattern in patterns)
 
 
+def first_match(pattern: str, names: list[str]) -> str:
+    for name in names:
+        if match(pattern, name):
+            return name
+    return ""
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
