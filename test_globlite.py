@@ -1,6 +1,6 @@
 import unittest
 
-from globlite import count_matches, filter_names, first_match, match, matches_any
+from globlite import count_matches, filter_names, first_match, match, matches_any, unmatched
 
 
 class GlobliteTest(unittest.TestCase):
@@ -19,6 +19,7 @@ class GlobliteTest(unittest.TestCase):
         self.assertEqual(count_matches("*.txt", names), 2)
         self.assertEqual(first_match("*.txt", names), "notes.txt")
         self.assertEqual(first_match("*.png", names), "")
+        self.assertEqual(unmatched("*.txt", names), ["notes.md"])
 
     def test_literal_dot(self) -> None:
         self.assertFalse(match("a.c", "abc"))
