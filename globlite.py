@@ -19,6 +19,10 @@ def first_match(pattern: str, names: list[str]) -> str:
     return ""
 
 
+def unmatched(pattern: str, names: list[str]) -> list[str]:
+    return [name for name in names if not match(pattern, name)]
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
