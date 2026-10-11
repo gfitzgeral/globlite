@@ -23,6 +23,12 @@ def unmatched(pattern: str, names: list[str]) -> list[str]:
     return [name for name in names if not match(pattern, name)]
 
 
+def all_match(pattern: str, names: list[str]) -> bool:
+    if not names:
+        return False
+    return all(match(pattern, name) for name in names)
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
