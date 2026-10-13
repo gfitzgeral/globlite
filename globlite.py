@@ -29,6 +29,10 @@ def all_match(pattern: str, names: list[str]) -> bool:
     return all(match(pattern, name) for name in names)
 
 
+def none_match(pattern: str, names: list[str]) -> bool:
+    return count_matches(pattern, names) == 0
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
