@@ -33,6 +33,13 @@ def none_match(pattern: str, names: list[str]) -> bool:
     return count_matches(pattern, names) == 0
 
 
+def first_unmatched(pattern: str, names: list[str]) -> str:
+    for name in names:
+        if not match(pattern, name):
+            return name
+    return ""
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
