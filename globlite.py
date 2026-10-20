@@ -40,6 +40,13 @@ def first_unmatched(pattern: str, names: list[str]) -> str:
     return ""
 
 
+def some_match(pattern: str, names: list[str]) -> bool:
+    if not names:
+        return False
+    found = count_matches(pattern, names)
+    return 0 < found < len(names)
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
