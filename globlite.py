@@ -51,6 +51,10 @@ def unmatched_count(pattern: str, names: list[str]) -> int:
     return len(unmatched(pattern, names))
 
 
+def match_gap(pattern: str, names: list[str]) -> int:
+    return abs(count_matches(pattern, names) - unmatched_count(pattern, names))
+
+
 def count_matches(pattern: str, names: list[str]) -> int:
     return len(filter_names(pattern, names))
 
