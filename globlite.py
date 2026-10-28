@@ -73,3 +73,6 @@ def _compile(pattern: str) -> str:
         else:
             out.append(re.escape(char))
     return "".join(out)
+
+def any_left(pattern: str, names: list[str]) -> bool:
+    return unmatched_count(pattern, names) > 0
