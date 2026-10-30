@@ -76,3 +76,6 @@ def _compile(pattern: str) -> str:
 
 def any_left(pattern: str, names: list[str]) -> bool:
     return unmatched_count(pattern, names) > 0
+
+def all_covered(pattern: str, names: list[str]) -> bool:
+    return bool(names) and unmatched_count(pattern, names) == 0
