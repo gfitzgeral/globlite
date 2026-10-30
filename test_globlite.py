@@ -1,6 +1,6 @@
 import unittest
 
-from globlite import all_match, count_matches, filter_names, first_match, first_unmatched, match, match_gap, matches_any, none_match, some_match, unmatched, unmatched_count, any_left
+from globlite import all_match, count_matches, filter_names, first_match, first_unmatched, match, match_gap, matches_any, none_match, some_match, unmatched, unmatched_count, any_left, all_covered
 
 
 class GlobliteTest(unittest.TestCase):
@@ -30,6 +30,8 @@ class GlobliteTest(unittest.TestCase):
         self.assertFalse(some_match("*.png", names))
         self.assertEqual(unmatched_count("*.txt", names), 1)
         self.assertEqual(match_gap("*.txt", names), 1)
+        self.assertTrue(all_covered("*.txt", ["notes.txt", "a.txt"]))
+        self.assertFalse(all_covered("*.txt", names))
         self.assertTrue(any_left("*.txt", names))
         self.assertFalse(any_left("*.txt", ["notes.txt", "a.txt"]))
 
